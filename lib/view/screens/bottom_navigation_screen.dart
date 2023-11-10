@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:tmdb/View/Utils/app_colors.dart';
+import 'package:tmdb/view/utils/text_styles.dart';
 
 import 'home_screen.dart';
 import 'media_library_screen.dart';
@@ -21,31 +23,52 @@ class BottomNavigationScreen extends StatelessWidget {
       ],
       items: [
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home),
-          title: 'Home',
-          activeColorPrimary: Colors.deepPurple,
-          inactiveColorPrimary: Colors.grey,
+          icon: Image.asset(
+            "lib/assets/images/dashboard.png",
+            color: AppColors.whiteColor,
+          ),
+          inactiveIcon: Image.asset("lib/assets/images/dashboard.png"),
+          title: 'Dashboard',
+          activeColorPrimary: AppColors.whiteColor,
+          inactiveColorPrimary: AppColors.greyColor,
+          textStyle: TextStyles.bottomNavTextStyle,
         ),
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.search),
           title: 'Search',
-          activeColorPrimary: Colors.deepPurple,
-          inactiveColorPrimary: Colors.grey,
+          activeColorPrimary: AppColors.whiteColor,
+          inactiveColorPrimary: AppColors.greyColor,
+          textStyle: TextStyles.bottomNavTextStyle,
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.video_collection),
+          icon: Image.asset(
+            "lib/assets/images/media.png",
+            color: AppColors.whiteColor,
+          ),
+          inactiveIcon: Image.asset("lib/assets/images/media.png"),
           title: 'Media Library',
-          activeColorPrimary: Colors.deepPurple,
-          inactiveColorPrimary: Colors.grey,
+          activeColorPrimary: AppColors.whiteColor,
+          inactiveColorPrimary: AppColors.greyColor,
+          textStyle: TextStyles.bottomNavTextStyle,
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.more_horiz),
+          icon: Image.asset(
+            "lib/assets/images/more.png",
+            color: AppColors.whiteColor,
+          ),
+          inactiveIcon: Image.asset("lib/assets/images/more.png"),
           title: 'More',
-          activeColorPrimary: Colors.deepPurple,
-          inactiveColorPrimary: Colors.grey,
+          activeColorPrimary: AppColors.whiteColor,
+          inactiveColorPrimary: AppColors.greyColor,
+          textStyle: TextStyles.bottomNavTextStyle,
         ),
       ],
       navBarStyle: NavBarStyle.style6,
+      backgroundColor: AppColors.primaryColor,
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.circular(27),
+      ),
+      navBarHeight: 75,
     );
   }
 }

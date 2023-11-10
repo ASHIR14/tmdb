@@ -10,4 +10,5 @@ class AppColors {
   static Color pinkColor = const Color(0xffe26ca5);
   static Color purpleColor = const Color(0xff564ca3);
   static Color goldColor = const Color(0xffcd9d0f);
+  static Color whiteColor = Colors.white;
 }
