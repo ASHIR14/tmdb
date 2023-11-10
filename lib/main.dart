@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +9,8 @@ import 'providers/movie_provider.dart';
 import 'providers/search_provider.dart';
 import 'view/screens/bottom_navigation_screen.dart';
 
-void main() {
+Future<void> main() async {
+  await GetStorage.init("moviesDB");
   runApp(const MyApp());
 }
 

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -20,23 +21,23 @@ class MovieDetailsScreen extends StatefulWidget {
 class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<MovieDetailsProvider>(
-      builder: (context, movieDetailsProvider, child) {
-        switch (movieDetailsProvider.movieStatus) {
-          case DataStatus.initial:
-            WidgetsBinding.instance.addPostFrameCallback((final _) {
-              movieDetailsProvider.getMovieDetails(movieID: widget.movieID);
-            });
-            return Center(
-              child: CircularProgressIndicator(color: AppColors.primaryColor),
-            );
-          case DataStatus.loading:
-            return Center(
-              child: CircularProgressIndicator(color: AppColors.primaryColor),
-            );
-          case DataStatus.loaded:
-            return Scaffold(
-              body: MediaQuery.of(context).orientation == Orientation.portrait
+    return Scaffold(
+      body: Consumer<MovieDetailsProvider>(
+        builder: (context, movieDetailsProvider, child) {
+          switch (movieDetailsProvider.movieStatus) {
+            case DataStatus.initial:
+              WidgetsBinding.instance.addPostFrameCallback((final _) {
+                movieDetailsProvider.getMovieDetails(movieID: widget.movieID);
+              });
+              return Center(
+                child: CircularProgressIndicator(color: AppColors.primaryColor),
+              );
+            case DataStatus.loading:
+              return Center(
+                child: CircularProgressIndicator(color: AppColors.primaryColor),
+              );
+            case DataStatus.loaded:
+              return MediaQuery.of(context).orientation == Orientation.portrait
                   ? Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -46,7 +47,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                           width: 1.sw,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
+                              image: CachedNetworkImageProvider(
                                 'https://image.tmdb.org/t/p/w500${movieDetailsProvider.movie.posterPath}',
                               ),
                               fit: BoxFit.cover,
@@ -73,7 +74,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                           width: 0.5.sw,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
+                              image: CachedNetworkImageProvider(
                                 'https://image.tmdb.org/t/p/w500${movieDetailsProvider.movie.posterPath}',
                               ),
                               fit: BoxFit.cover,
@@ -92,17 +93,17 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                           ),
                         ),
                       ],
-                    ),
-            );
-          case DataStatus.error:
-            return Center(
-              child: Text(
-                'Unable to fetch data',
-                style: TextStyle(color: AppColors.redColor),
-              ),
-            );
-        }
-      },
+                    );
+            case DataStatus.error:
+              return Center(
+                child: Text(
+                  'Unable to fetch data',
+                  style: TextStyle(color: AppColors.redColor),
+                ),
+              );
+          }
+        },
+      ),
     );
   }
 }

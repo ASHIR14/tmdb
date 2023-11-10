@@ -44,12 +44,20 @@ class MovieDetailsFirstColumn extends StatelessWidget {
     return OutlinedButton.icon(
       onPressed: () {
         try {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => VideoPlayerScreen(
-                  videoKey: movieDetailsProvider.trailer!.key!),
-            ),
-          );
+          if (movieDetailsProvider.trailer != null) {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => VideoPlayerScreen(
+                    videoKey: movieDetailsProvider.trailer!.key!),
+              ),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Trailer not found"),
+              ),
+            );
+          }
         } catch (error) {
           log("Error[movie_details_Screen]:$error");
         }
@@ -88,31 +96,32 @@ class MovieDetailsFirstColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SafeArea(
-            child: GestureDetector(
-          onTap: () => Navigator.pop(context),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(width: 15.w),
-              Icon(
-                Icons.arrow_back_ios,
-                size: 18,
-                color: AppColors.whiteColor,
-              ),
-              SizedBox(width: 10.w),
-              Text(
-                "Watch",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
+          child: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(width: 15.w),
+                Icon(
+                  Icons.arrow_back_ios,
+                  size: 18,
                   color: AppColors.whiteColor,
                 ),
-              ),
-            ],
+                SizedBox(width: 10.w),
+                Text(
+                  "Watch",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+              ],
+            ),
           ),
-        )),
+        ),
         Container(
           width: 1.sw,
           padding: EdgeInsets.only(bottom: 30.h),

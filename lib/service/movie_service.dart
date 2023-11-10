@@ -32,7 +32,7 @@ class MovieService {
 
       return MovieDetailsModel.fromJson(response.data);
     } catch (error) {
-      log("Error[getMovies][movie_service]: $error");
+      log("Error[getMovieDetails][movie_service]: $error");
       return MovieDetailsModel();
     }
   }
@@ -47,7 +47,7 @@ class MovieService {
 
       return videos;
     } catch (error) {
-      log("Error[getMovies][movie_service]: $error");
+      log("Error[getVideosByID][movie_service]: $error");
       return [];
     }
   }
