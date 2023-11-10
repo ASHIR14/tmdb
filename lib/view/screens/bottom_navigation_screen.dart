@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:tmdb/View/Utils/app_colors.dart';
 import 'package:tmdb/view/utils/text_styles.dart';
@@ -66,9 +67,9 @@ class BottomNavigationScreen extends StatelessWidget {
       navBarStyle: NavBarStyle.style6,
       backgroundColor: AppColors.primaryColor,
       decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(27),
+        borderRadius: BorderRadius.circular(27.r),
       ),
-      navBarHeight: 75,
+      navBarHeight: 75.h,
     );
   }
 }
