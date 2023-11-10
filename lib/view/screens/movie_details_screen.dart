@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:tmdb/View/Utils/app_colors.dart';
 import 'package:tmdb/providers/movie_details_provider.dart';
+import 'package:tmdb/view/screens/video_player_screen.dart';
 
 import '../../enum/data_status_enum.dart';
 
@@ -122,7 +125,19 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                               ),
                               SizedBox(height: 10.h),
                               OutlinedButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  try {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => VideoPlayerScreen(
+                                            videoKey: movieDetailsProvider
+                                                .trailer!.key!),
+                                      ),
+                                    );
+                                  } catch (error) {
+                                    log("Error[movie_details_Screen]:$error");
+                                  }
+                                },
                                 icon: Icon(
                                   Icons.play_arrow,
                                   color: AppColors.whiteColor,
