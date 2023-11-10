@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:tmdb/providers/movie_details_provider.dart';
 import 'package:tmdb/providers/movie_provider.dart';
 
 import 'view/screens/bottom_navigation_screen.dart';
@@ -19,6 +20,8 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MultiProvider(
         providers: [
           ChangeNotifierProvider<MovieProvider>(create: (_) => MovieProvider()),
+          ChangeNotifierProvider<MovieDetailsProvider>(
+              create: (_) => MovieDetailsProvider()),
         ],
         child: MaterialApp(
           title: 'TMDB 1020',

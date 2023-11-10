@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:tmdb/model/movie_model.dart';
 
+import '../model/movie_details_model.dart';
+
 class MovieService {
   static String baseURL = "https://api.themoviedb.org/3/movie/";
   static String params = "?api_key=5f160ef33246e37ef292acb27bc1c41f";
@@ -19,6 +21,18 @@ class MovieService {
     } catch (error) {
       log("Error[getMovies][movie_service]: $error");
       return [];
+    }
+  }
+
+  static Future<MovieDetailsModel> getMovieDetails(
+      {required int movieID}) async {
+    try {
+      Response response = await Dio().get("$baseURL$movieID$params");
+
+      return MovieDetailsModel.fromJson(response.data);
+    } catch (error) {
+      log("Error[getMovies][movie_service]: $error");
+      return MovieDetailsModel();
     }
   }
 }
