@@ -35,7 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Provider.of<PersistentTabController>(context, listen: false)
+                  .index = 1;
+            },
             icon: Icon(
               Icons.search,
               color: AppColors.darkBlue,

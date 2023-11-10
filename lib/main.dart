@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
-import 'package:tmdb/providers/movie_details_provider.dart';
-import 'package:tmdb/providers/movie_provider.dart';
 
+import 'providers/movie_details_provider.dart';
+import 'providers/movie_provider.dart';
+import 'providers/search_provider.dart';
 import 'view/screens/bottom_navigation_screen.dart';
 
 void main() {
@@ -19,9 +21,13 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, child) => MultiProvider(
         providers: [
+          ChangeNotifierProvider<PersistentTabController>(
+              create: (_) => PersistentTabController(initialIndex: 0)),
           ChangeNotifierProvider<MovieProvider>(create: (_) => MovieProvider()),
           ChangeNotifierProvider<MovieDetailsProvider>(
               create: (_) => MovieDetailsProvider()),
+          ChangeNotifierProvider<SearchProvider>(
+              create: (_) => SearchProvider()),
         ],
         child: MaterialApp(
           title: 'TMDB 1020',

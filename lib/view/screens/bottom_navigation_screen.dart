@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:provider/provider.dart';
 import 'package:tmdb/View/Utils/app_colors.dart';
 import 'package:tmdb/view/utils/text_styles.dart';
 
@@ -16,6 +17,7 @@ class BottomNavigationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PersistentTabView(
       context,
+      controller: Provider.of<PersistentTabController>(context, listen: false),
       screens: const [
         HomeScreen(),
         SearchScreen(),
