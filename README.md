@@ -20,5 +20,7 @@ Major Tasks Completed:
 Other minor tasks have also been completed
 
 Time taken for Basic Test: ~7 Hours
+
 Time taken for Advanced Test: ~5 Hours
+
 Total Time Taken: ~12 Hours
