@@ -1,16 +1,24 @@
 # tmdb
 
-A new Flutter project.
+Assignment from TenTwenty
 
-## Getting Started
+## Details
 
-This project is a starting point for a Flutter application.
+[Instructions Link]([https://docs.google.com/document/d/1G6zKxUnUoGQ1JXgRZVDNXRHDb2ZILDghWIRk2y1SyD8/edit#](https://www.figma.com/proto/4e1pQ2l0VkLNgnaV7xNlFW/Tentwenty-%3A-App-Test?page-id=21%3A233&node-id=21%3A235&viewport=241%2C48%2C0.08&scaling=min-zoom&starting-point-node-id=21%3A235))
 
-A few resources to get you started if this is your first Flutter project:
+Major Tasks Completed:
+ - Dashboard Screen
+ - Movie Details Screen
+ - Video Player
+ - Seat Mapping
+ - Search
+ - Persistent Bottom Navigation
+ - Offline support
+ - Landscape orientation support
+ - Provider State Management
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Other minor tasks have also been completed
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Time taken for Basic Test: ~7 Hours
+Time taken for Advanced Test: ~5 Hours
+Total Time Taken: ~12 Hours
