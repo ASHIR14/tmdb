@@ -10,7 +10,7 @@ import 'package:tmdb/enum/data_status_enum.dart';
 import 'package:tmdb/providers/movie_details_provider.dart';
 
 import '../../providers/movie_provider.dart';
-import 'movie_details/movie_details_screen.dart';
+import 'movie_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

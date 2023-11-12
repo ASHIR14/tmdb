@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:tmdb/View/Utils/app_colors.dart';
-import 'package:tmdb/providers/movie_details_provider.dart';
-import 'package:tmdb/view/screens/movie_details/md_first_column.dart';
-import 'package:tmdb/view/screens/movie_details/md_second_column.dart';
 
-import '../../../enum/data_status_enum.dart';
+import '../../enum/data_status_enum.dart';
+import '../../providers/movie_details_provider.dart';
+import '../Utils/app_colors.dart';
+import '../widgets/movie_details/md_first_column.dart';
+import '../widgets/movie_details/md_second_column.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   const MovieDetailsScreen({required this.movieID, super.key});

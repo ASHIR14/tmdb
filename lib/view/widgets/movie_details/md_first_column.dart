@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tmdb/providers/movie_details_provider.dart';
+import 'package:tmdb/view/screens/get_tickets_screen.dart';
+import 'package:tmdb/view/widgets/app_button.dart';
 
 import '../../Utils/app_colors.dart';
-import '../video_player_screen.dart';
+import '../../screens/video_player_screen.dart';
 
 class MovieDetailsFirstColumn extends StatelessWidget {
   const MovieDetailsFirstColumn(
@@ -15,28 +17,20 @@ class MovieDetailsFirstColumn extends StatelessWidget {
   final MovieDetailsProvider movieDetailsProvider;
 
   Widget getTicketsButton(context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ButtonStyle(
-        fixedSize: MediaQuery.of(context).orientation == Orientation.portrait
-            ? MaterialStateProperty.all(Size(243.w, 50.h))
-            : null,
-        backgroundColor: MaterialStateProperty.all(AppColors.blueColor),
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+    return AppButton(
+      text: "Get Tickets",
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => GetTicketsScreen(
+                movieName: movieDetailsProvider.movie.title!,
+                movieDate: movieDetailsProvider.movie.releaseDate!),
           ),
-        ),
-      ),
-      child: Text(
-        "Get Tickets",
-        style: TextStyle(
-          fontSize: 14,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
-          color: AppColors.whiteColor,
-        ),
-      ),
+        );
+      },
+      fixedSize: MediaQuery.of(context).orientation == Orientation.portrait
+          ? MaterialStateProperty.all(Size(243.w, 50.h))
+          : null,
     );
   }
 

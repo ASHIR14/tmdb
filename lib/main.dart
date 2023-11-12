@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
+import 'package:tmdb/providers/tickets_provider.dart';
 
 import 'providers/movie_details_provider.dart';
 import 'providers/movie_provider.dart';
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
               create: (_) => MovieDetailsProvider()),
           ChangeNotifierProvider<SearchProvider>(
               create: (_) => SearchProvider()),
+          ChangeNotifierProvider<TicketsProvider>(
+              create: (_) => TicketsProvider()),
         ],
         child: MaterialApp(
           title: 'TMDB 1020',

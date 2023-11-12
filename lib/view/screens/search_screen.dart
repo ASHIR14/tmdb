@@ -11,7 +11,7 @@ import 'package:tmdb/providers/movie_provider.dart';
 import '../../enum/data_status_enum.dart';
 import '../../providers/movie_details_provider.dart';
 import '../../providers/search_provider.dart';
-import 'movie_details/movie_details_screen.dart';
+import 'movie_details_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
